@@ -699,11 +699,11 @@
         <div class="tl-item reveal">
           <div class="tl-left">
             <div class="tl-card glass-card-neon">
-              <div class="tl-date">2021 — Present</div>
-              <div class="tl-title">BSc Computer Science Student</div>
+              <div class="tl-date">2021 — Oct 2025</div>
+              <div class="tl-title">BSc Computer Science</div>
               <div class="tl-company">Bingham University · Karu, Nigeria</div>
               <div class="tl-desc">
-                Studying Computer Science (graduating Oct 2025 — Second Class Upper). Final year project: Student Attendance Management System using QR code scanning, built with Django, Python, Flask, and SQLite.
+                Completed BSc Computer Science in October 2025 with a Second Class Upper. Final year project: Student Attendance Management System using QR code scanning, built with Django, Python, Flask, and SQLite.
               </div>
               <div class="tl-tags">
                 <span class="tl-tag">Python</span><span class="tl-tag">Django</span><span class="tl-tag">Flask</span><span class="tl-tag">SQLite</span>
@@ -996,35 +996,35 @@
         desc: 'Full-stack platform for gaming tech and branding services. AI-powered integrations using Mistral AI, Amazon S3, and multiple APIs. My most comprehensive build.',
         tags: ['Next.js', 'TypeScript', 'Mistral AI', 'Amazon S3'],
         icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`, category: 'web',
-        live: 'https://dantex.app', github: '#'
+        live: 'https://dantex.app', github: ''
       },
       {
         title: 'Student Attendance System (QR Code)',
         desc: 'Final year university project. Full-stack attendance tracking using QR code scanning with automated records, database management, and reporting.',
         tags: ['Django', 'Python', 'Flask', 'SQLite'],
         icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="16" y1="11" x2="8" y2="11"/><line x1="16" y1="15" x2="8" y2="15"/><polyline points="10 7 9 7 8 7"/></svg>`, category: 'app',
-        live: '#', github: '#'
+        live: '', github: ''
       },
       {
         title: 'Pedro Website',
         desc: 'Product/brand showcase site demonstrating frontend layout design, responsive UI, and clean visual presentation.',
         tags: ['HTML', 'CSS', 'JavaScript'],
         icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`, category: 'web',
-        live: '#', github: '#'
+        live: '#', github: ''
       },
       {
         title: 'Hangman Game',
         desc: 'Interactive command-line Hangman built entirely in Python. Demonstrates core logic, conditionals, loops, and user interaction.',
         tags: ['Python', 'CLI'],
         icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>`, category: 'app',
-        live: '#', github: '#'
+        live: '', github: ''
       },
       {
         title: 'Creative Content Portfolio',
         desc: 'Video edits, promotional trailers, social media content, logo reveal animations, and motion graphics — storytelling meets visual design.',
         tags: ['CapCut', 'Photoshop', 'Canva'],
         icon: `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`, category: 'creative',
-        live: '#', github: '#'
+        live: '', github: ''
       },
     ];
 
@@ -1034,16 +1034,18 @@
       projGrid.innerHTML = '';
       const filtered = filter === 'all' ? projectsData : projectsData.filter(p => p.category === filter);
       filtered.forEach((p, i) => {
+        const actionButtons = [];
+        if (p.live && p.live !== '#') {
+          actionButtons.push(`<a href="${p.live}" target="_blank" class="proj-link-btn" title="Live Demo">↗</a>`);
+        }
+
         const card = document.createElement('div');
         card.className = 'proj-card glass-card-neon reveal';
         card.style.transitionDelay = (i * 0.08) + 's';
         card.innerHTML = `
           <div class="proj-thumb">
             <div class="proj-thumb-inner">${p.icon}</div>
-            <div class="proj-overlay">
-              <a href="${p.live}" target="_blank" class="proj-link-btn" title="Live Demo">↗</a>
-              <a href="${p.github}" target="_blank" class="proj-link-btn" title="GitHub">⌥</a>
-            </div>
+            ${actionButtons.length ? `<div class="proj-overlay">${actionButtons.join('')}</div>` : ''}
           </div>
           <div class="proj-body">
             <div class="proj-tags">${p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>
