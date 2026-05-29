@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -445,16 +446,6 @@
 
 
 
-    /* PARALLAX BANNER */
-    .parallax-banner { position: relative; height: 420px; overflow: hidden; z-index: 2; }
-    .parallax-img { position: absolute; inset: -80px 0; background-size: cover; background-position: center 20%; will-change: transform; filter: brightness(0.45) saturate(0.8); }
-    .parallax-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(0,0,0,0.5), rgba(224,163,255,0.15)); }
-    .parallax-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 24px; z-index: 3; }
-    .parallax-label { font-size: 0.7rem; letter-spacing: 4px; color: var(--primary); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
-    .parallax-title { font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .parallax-sub { color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 500px; line-height: 1.7; }
-    @media (max-width: 768px) { .parallax-title { font-size: 1.6rem; } .parallax-banner { height: 320px; } }
-
     /* SCROLL PROGRESS BAR */
     .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); z-index: 999999; transition: width 0.1s linear; width: 0%; box-shadow: 0 0 10px var(--glow-cyan); }
 
@@ -472,13 +463,96 @@
     .typing-cursor { display: inline-block; width: 3px; height: 1em; background: var(--primary); margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: text-bottom; }
 
     /* SKILL CARDS — replace hex with clean cards on mobile */
+    @media (max-width: 768px) {
+      .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+        padding: 0 2px !important;
+      }
+      .skill-hex-wrap {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: unset !important;
+        margin: 0 !important;
+      }
+      /* ── SLANTED PARALLELOGRAM CARD ── */
+      .skill-hex {
+        min-height: 182px !important;
+        padding: 26px 16px 20px !important;
+        border-radius: 14px !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0 !important;
+        transform: skewX(-7deg) !important;
+        position: relative !important;
+        overflow: visible !important;
+      }
+      /* Counter-skew ALL direct children so content is upright */
+      .skill-hex > * {
+        transform: skewX(7deg) !important;
+      }
+      /* Glowing slash accent at the top */
+      .skill-hex::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -1px !important; left: 8% !important; right: 8% !important;
+        height: 2px !important;
+        background: var(--cat-color, var(--primary)) !important;
+        box-shadow: 0 0 12px var(--cat-color, var(--primary)), 0 0 28px var(--cat-color, var(--primary)) !important;
+        border-radius: 0 !important;
+        opacity: 0.9 !important;
+      }
+      /* Remove the desktop card ::before shine on mobile */
+      .skill-hex::before { display: none !important; }
+
+      /* Icon — bigger and centred */
+      .skill-icon {
+        width: 48px !important;
+        height: 48px !important;
+        margin: 0 auto 12px !important;
+        flex-shrink: 0 !important;
+        transform: skewX(7deg) !important;
+      }
+      .skill-icon svg { width: 36px !important; height: 36px !important; }
+
+      /* Name */
+      .skill-name {
+        font-size: 0.86rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 12px !important;
+        transform: skewX(7deg) !important;
+        white-space: normal !important;
+      }
+
+      /* Progress bar — slightly thicker */
+      .skill-bar-wrap {
+        width: 88% !important;
+        height: 5px !important;
+        border-radius: 3px !important;
+        transform: skewX(7deg) !important;
+        overflow: hidden !important;
+      }
+      .skill-bar {
+        height: 5px !important;
+        border-radius: 3px !important;
+      }
+
+      /* Percentage */
+      .skill-pct {
+        font-size: 0.8rem !important;
+        font-weight: 700 !important;
+        margin-top: 8px !important;
+        transform: skewX(7deg) !important;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+      }
+    }
+
     @media (max-width: 600px) {
-      .skill-hex-wrap { width: 100% !important; height: auto !important; margin: 0 !important; }
-      .skill-hex { border-radius: 16px !important; padding: 16px 14px !important; flex-direction: row !important; text-align: left !important; gap: 14px; }
-      .skill-icon { width: 32px !important; height: 32px !important; margin: 0 !important; flex-shrink: 0; }
-      .skill-name { font-size: 0.85rem !important; margin: 0 0 4px !important; }
-      .skill-bar-wrap { width: 100% !important; }
-      .skill-pct { font-size: 0.75rem !important; }
       .proj-grid { grid-template-columns: 1fr !important; }
       .services-grid { grid-template-columns: 1fr !important; }
       .cert-grid { grid-template-columns: 1fr !important; }
@@ -555,14 +629,58 @@
       .mobile-menu-toggle { display: flex; }
       .about-stats { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
-      .skills-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
-      .skill-hex-wrap { width: 100% !important; height: auto !important; aspect-ratio: 1 / 1.15; margin: 0 !important; }
-      .skill-hex { padding: 18px 12px; border-radius: 16px; }
-      .skill-icon { width: 32px; height: 32px; margin-bottom: 12px; transform: rotate(0deg); }
-      .skill-name { font-size: 0.95rem; margin-bottom: 10px; transform: rotate(0deg); }
-      .skill-pct { font-size: 0.75rem; }
-      .skill-bar-wrap { width: 90%; }
     }
+    /* ── SOCIAL ICONS ── */
+    .social-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin: 20px 0 12px;
+    }
+    .social-icon-link {
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-muted);
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position: relative; overflow: hidden;
+    }
+    .social-icon-link i { position: relative; z-index: 1; transition: color 0.3s; }
+    .social-icon-link::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      opacity: 0; transition: opacity 0.35s;
+    }
+    .social-icon-link:hover { transform: translateY(-5px) scale(1.1); border-color: transparent; }
+    .social-icon-link:hover::before { opacity: 1; }
+    .social-icon-link:hover i { color: #000; }
+    .social-icon-link.si-github::before   { background: linear-gradient(135deg, #e0a3ff, #9b59b6); }
+    .social-icon-link.si-linkedin::before { background: linear-gradient(135deg, #00f0ff, #0077b5); }
+    .social-icon-link.si-whatsapp::before { background: linear-gradient(135deg, #00ff88, #25d366); }
+    .social-icon-link.si-mail::before     { background: linear-gradient(135deg, #ff69b4, #e0a3ff); }
+    .social-icon-link.si-github:hover   { box-shadow: 0 8px 24px rgba(224,163,255,0.5); }
+    .social-icon-link.si-linkedin:hover { box-shadow: 0 8px 24px rgba(0,240,255,0.45); }
+    .social-icon-link.si-whatsapp:hover { box-shadow: 0 8px 24px rgba(0,255,136,0.45); }
+    .social-icon-link.si-mail:hover     { box-shadow: 0 8px 24px rgba(255,105,180,0.45); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 52px 24px 36px;
+      border-top: 1px solid var(--glass-border);
+      background: linear-gradient(180deg, transparent, rgba(0,240,255,0.025));
+    }
+    .footer-name {
+      font-size: 1.3rem; font-weight: 800; letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .footer-tagline { color: var(--text-muted); font-size: 0.8rem; margin-top: 6px; }
+    .footer-divider {
+      width: 60px; height: 1px; margin: 18px auto;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+    .footer-copy { color: rgba(255,255,255,0.28); font-size: 0.75rem; margin-top: 12px; }
+    footer span { color: var(--primary); }
   </style>
 </head>
 <body>
@@ -816,17 +934,6 @@
     </div>
   </section>
 
-  <!-- PARALLAX BANNER -->
-  <div class="parallax-banner" id="parallaxBanner">
-    <div class="parallax-img" id="parallaxImg" style="background-image:url('images/nnpc-server.webp');"></div>
-    <div class="parallax-overlay"></div>
-    <div class="parallax-content">
-      <div class="parallax-label">IN THE FIELD</div>
-      <h3 class="parallax-title">Built with real experience.<br/>Not just code.</h3>
-      <p class="parallax-sub">6 months managing enterprise IT infrastructure at NNPC — servers, switches, Cisco networks, and more.</p>
-    </div>
-  </div>
-
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
@@ -920,7 +1027,7 @@
         <div class="edu-card glass-card-neon reveal reveal-delay-3">
           <div class="edu-icon" style="color:#ffaa00"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           <div class="edu-year">2017/2018</div>
-          <div class="edu-degree">3rd Best Overall Student — SS2 Science</div>
+          <div class="edu-degree">3rd Best Overall Student in SS Science</div>
           <div class="edu-school">Christ Ambassadors' College · Kaduna</div>
           <div class="edu-grade">Academic Award</div>
         </div>
@@ -994,7 +1101,24 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
   <footer>
-    <p>Designed & Built by <span>Joshua Erusiafe</span> · DANTEX Official · <span id="year"></span> · All Rights Reserved</p>
+    <div class="footer-name">JOSHUA ERUSIAFE.</div>
+    <div class="footer-tagline">Developer · IT Professional · Creative · Founder of DANTEX Official</div>
+    <div class="footer-divider"></div>
+    <div class="social-row">
+      <a href="https://github.com/Joshuaxyz-dev" target="_blank" class="social-icon-link si-github" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/joshua-erusiafe" target="_blank" class="social-icon-link si-linkedin" title="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://wa.me/2347062747558" target="_blank" class="social-icon-link si-whatsapp" title="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+      <a href="mailto:joshuaerusiafe@gmail.com" class="social-icon-link si-mail" title="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+    <div class="footer-copy">Joshua Erusiafe &nbsp;·&nbsp; © <span id="year"></span> &nbsp;·&nbsp; All Rights Reserved</div>
   </footer>
 
   <script>
@@ -1133,7 +1257,7 @@
           wrap.dataset.category = s.category;
           wrap.style.transitionDelay = (i * 0.06) + 's';
           const catGlow = {web:'var(--primary)',it:'var(--secondary)',ai:'#ffaa00',design:'var(--accent)'}[s.category] || 'var(--primary)';
-          wrap.innerHTML = `<div class="skill-hex"><div class="skill-icon" style="color:${catGlow}">${s.icon}</div><h4 class="skill-name">${s.name}</h4><div class="skill-bar-wrap"><div class="skill-bar" data-level="${s.level}" style="background:linear-gradient(90deg,${catGlow},var(--secondary))"></div></div><div class="skill-pct">${s.level}%</div></div>`;
+          wrap.innerHTML = `<div class="skill-hex" style="--cat-color:${catGlow}"><div class="skill-icon" style="color:${catGlow}">${s.icon}</div><h4 class="skill-name">${s.name}</h4><div class="skill-bar-wrap"><div class="skill-bar" data-level="${s.level}" style="background:linear-gradient(90deg,${catGlow},var(--secondary))"></div></div><div class="skill-pct">${s.level}%</div></div>`;
           skillsGrid.appendChild(wrap);
           revealObserver.observe(wrap);
         });
