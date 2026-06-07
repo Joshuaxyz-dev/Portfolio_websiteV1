@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joshua Erusiafe — Developer & IT Professional</title>
+  <title>Joshua Erusiafe | Developer & IT Professional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -107,12 +107,12 @@
     .mobile-menu-toggle.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(9px, 9px); }
     .mobile-menu-toggle.active .hamburger-line:nth-child(2) { opacity: 0; }
     .mobile-menu-toggle.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-    .mobile-nav { position: fixed; top: 76px; left: 12px; right: 12px; max-height: calc(100vh - 92px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 18px; padding: 16px; display: none; flex-direction: column; gap: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); z-index: 99998; }
+    .mobile-nav { position: fixed; top: 74px; left: 12px; right: 12px; max-height: calc(100vh - 88px); overflow: hidden; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 18px; padding: 14px; display: none; flex-direction: column; gap: 8px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); z-index: 99998; }
     .mobile-nav.active { display: flex; animation: slideDown 0.24s ease-out; }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
-    .mobile-nav a { color: #fff; text-decoration: none; padding: 12px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 0.98rem; transition: all 0.3s ease; }
+    .mobile-nav a { color: #fff; text-decoration: none; padding: 9px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 0.9rem; transition: all 0.3s ease; }
     .mobile-nav a:hover { background: rgba(224, 163, 255, 0.1); color: #e0a3ff; box-shadow: 0 0 20px rgba(224, 163, 255, 0.3); transform: translateY(-2px); }
-    .mobile-close { position: sticky; top: 0; align-self: flex-end; font-size: 1.5rem; line-height: 1; cursor: pointer; color: var(--text-muted); background: none; border: none; padding: 4px 6px; }
+    .mobile-close { display: none; }
 
     /* SECTIONS */
     section { position: relative; z-index: 1; padding: 100px 24px 70px; }
@@ -154,8 +154,10 @@
     .hero-content { max-width: 640px; position: relative; z-index: 5; }
     .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(0,255,255,0.08); border: 1px solid rgba(0,255,255,0.16); border-radius: 999px; padding: 10px 18px; font-size: 0.82rem; color: #b4f7ff; margin-bottom: 22px; animation: fadeUp 0.8s ease 1.0s both; }
     .hero-badge-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 16px var(--primary); animation: blink 2s ease-in-out infinite; }
+    .hero-kicker { color: var(--text-soft); font-size: 0.82rem; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 18px; animation: fadeUp 0.8s ease 1.0s both; }
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
     .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 24px; animation: fadeUp 0.8s ease 1.2s both; }
+    #typedRole { display: inline-block; min-height: 1.15em; }
     .hero-sub { color: var(--text-muted); font-size: 1.08rem; line-height: 1.8; max-width: 540px; margin-bottom: 40px; animation: fadeUp 0.8s ease 1.35s both; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.8s ease 1.5s both; }
     .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #000; padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 0 20px var(--glow-cyan); transition: transform 0.3s; }
@@ -184,8 +186,9 @@
     .about-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
     .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50px; padding: 6px 14px; font-size: 0.8rem; color: var(--text-soft); }
     .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
-    .who-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
-    .who-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 999px; padding: 6px 12px; font-size: 0.78rem; color: var(--text-soft); }
+    .profile-lines { display: grid; gap: 10px; max-width: 520px; margin: 24px auto 30px; text-align: left; }
+    .profile-line { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--text-soft); font-size: 0.9rem; }
+    .profile-line span:first-child { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 1.4px; text-transform: uppercase; }
     .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
     .about-stat { padding: 24px 16px; text-align: center; }
     .about-stat-num { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -406,9 +409,9 @@
     .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
     .proj-card { border-radius: 20px; overflow: hidden; transition: all 0.4s ease; padding: 0; }
     .proj-thumb { width: 100%; height: 220px; position: relative; overflow: hidden; }
-    .proj-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); transition: opacity 0.4s; }
+    .proj-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); transition: opacity 0.4s; pointer-events: none; z-index: 1; }
     .proj-card:hover .proj-thumb-overlay { opacity: 0.5; }
-    .proj-cat-badge { position: absolute; top: 14px; left: 14px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid; border-radius: 6px; padding: 3px 10px; backdrop-filter: blur(8px); }
+    .proj-cat-badge { position: absolute; top: 14px; left: 14px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid; border-radius: 6px; padding: 3px 10px; backdrop-filter: blur(8px); pointer-events: none; z-index: 2; }
     .proj-action-row { position: absolute; bottom: 0; left: 0; right: 0; display: flex; gap: 10px; padding: 16px; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); pointer-events: auto; z-index: 2; }
     .proj-card:hover .proj-action-row { transform: translateY(0); }
     .proj-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-decoration: none; transition: all 0.25s; border: 1px solid; position: relative; z-index: 3; pointer-events: auto; }
@@ -424,15 +427,20 @@
 
     @media (hover: none), (max-width: 768px) {
       .proj-action-row {
-        position: static;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
         transform: none !important;
         padding: 14px 16px 16px;
         flex-wrap: wrap;
+        z-index: 4;
       }
 
       .proj-link-btn {
         flex: 1 1 120px;
         justify-content: center;
+        background-color: rgba(0,0,0,0.68);
       }
     }
 
@@ -654,6 +662,7 @@
         transform: none !important;
       }
       .hero-badge,
+      .hero-kicker,
       .hero-sub,
       .hero-title,
       .hero-ctas,
@@ -661,6 +670,18 @@
       .section-title,
       .section-subtitle {
         animation: none !important;
+      }
+      #typedRole {
+        display: block;
+        min-height: 1.25em;
+      }
+      .typing-cursor {
+        display: none !important;
+      }
+      .profile-line {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        text-align: center;
       }
     }
     /* ── SOCIAL ICONS ── */
@@ -752,7 +773,6 @@
   </nav>
 
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-close" onclick="toggleMobileNav()">✕</button>
     <a href="#about" onclick="toggleMobileNav()">About</a>
     <a href="#services" onclick="toggleMobileNav()">Services</a>
     <a href="#skills" onclick="toggleMobileNav()">Skills</a>
@@ -768,16 +788,13 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">
-            <div class="hero-badge-dot"></div>
-            Open to remote, hybrid, and onsite opportunities
-          </div>
+          <div class="hero-kicker">Remote, hybrid, and onsite opportunities</div>
           <h1 class="hero-title">
             Hi, I'm <span class="grad-text glow-animate">Joshua Erusiafe</span><br />
             <span id="typedRole"></span><span class="typing-cursor"></span>
           </h1>
           <p class="hero-sub">
-            Computer Science graduate with hands-on experience in web development, IT infrastructure, AI integrations, and creative design.
+            Computer Science graduate with hands-on experience in web development, IT infrastructure, automation, and creative design.
             Founder of <strong style="color:#e0a3ff">DANTEX Official</strong>, turning ideas into polished digital products.
           </p>
           <div class="hero-ctas">
@@ -802,17 +819,15 @@
         <div class="about-copy">
           <div class="section-label reveal">About Me</div>
           <h2 class="section-title reveal reveal-delay-1">
-            I build things that work — and look great doing it.
+            I build things that work, and look great doing it.
           </h2>
           <p class="about-text reveal reveal-delay-2">
             I'm Joshua Erusiafe, a Computer Science graduate from Bingham University, Abuja. I work across web development, IT support, networking, and creative design. As Founder & Director of DANTEX Official, I've built and shipped real products for real clients, handling everything from front-end code to branding and infrastructure.
           </p>
-          <div class="who-badges reveal reveal-delay-3">
-            <div class="who-badge"><div class="chip-dot"></div> Abuja, Nigeria</div>
-            <div class="who-badge"><div class="chip-dot" style="background:var(--secondary)"></div> Web Developer</div>
-            <div class="who-badge"><div class="chip-dot" style="background:var(--accent)"></div> IT Specialist</div>
-            <div class="who-badge"><div class="chip-dot" style="background:#00ff88"></div> Creative Work</div>
-            <div class="who-badge"><div class="chip-dot" style="background:#ffaa00"></div> Branding</div>
+          <div class="profile-lines reveal reveal-delay-3">
+            <div class="profile-line"><span>Base</span><strong>Abuja, Nigeria</strong></div>
+            <div class="profile-line"><span>Focus</span><strong>Web development, IT support, and branding</strong></div>
+            <div class="profile-line"><span>Work Style</span><strong>Hands-on, practical, and detail focused</strong></div>
           </div>
           <div class="about-stats reveal reveal-delay-4">
             <div class="about-stat glass-card-neon">
@@ -839,7 +854,7 @@
       <div class="section-label reveal">What I Do</div>
       <h2 class="section-title reveal reveal-delay-1">Services I <span class="grad-text">Offer</span></h2>
       <p class="section-subtitle reveal reveal-delay-2">
-        From concept to deployment — full-stack development, IT infrastructure, creative design, and AI-powered solutions.
+        From concept to deployment, full-stack development, IT infrastructure, creative design, and automation.
       </p>
       <div class="services-grid">
         <div class="service-card glass-card-neon reveal reveal-delay-1">
@@ -854,8 +869,8 @@
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-3">
           <div class="service-icon" style="color:var(--primary)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg></div>
-          <div class="service-title">AI & Automation</div>
-          <div class="service-desc">Integrating AI workflows, prompt design, and automation to build intelligent features and streamline business processes.</div>
+          <div class="service-title">Automation Systems</div>
+          <div class="service-desc">Integrating workflow automation, prompt design, and practical systems that streamline business processes.</div>
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-4">
           <div class="service-icon" style="color:var(--accent)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
@@ -886,7 +901,7 @@
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="web">WEB DEV</button>
         <button class="filter-btn" data-filter="it">IT & NETWORKING</button>
-        <button class="filter-btn" data-filter="ai">AI & TOOLS</button>
+        <button class="filter-btn" data-filter="ai">AUTOMATION</button>
         <button class="filter-btn" data-filter="design">DESIGN</button>
       </div>
       <div class="skills-grid" id="skillsGrid"></div>
@@ -904,7 +919,7 @@
         <div class="tl-item reveal">
           <div class="tl-left">
             <div class="tl-card glass-card-neon">
-              <div class="tl-date">2020 — Present</div>
+              <div class="tl-date">2020 to Present</div>
               <div class="tl-title">Founder & Director</div>
               <div class="tl-company">DANTEX Official · Self-Employed</div>
               <div class="tl-desc">
@@ -928,14 +943,14 @@
                 <img src="images/nnpc-server.webp" alt="Joshua at NNPC server room" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
                 <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.85) 100%);"></div>
                 <div style="position:absolute;bottom:14px;left:16px;">
-                  <div class="tl-date" style="margin:0 0 4px;">Apr 2024 — Sep 2024</div>
+                  <div class="tl-date" style="margin:0 0 4px;">Apr 2024 to Sep 2024</div>
                   <div class="tl-title" style="margin:0;font-size:1rem;">IT Support Specialist</div>
                 </div>
               </div>
               <div style="padding:18px 20px 20px;">
                 <div class="tl-company">NNPC / Nigerian Gas Marketing Limited · Abuja</div>
                 <div class="tl-desc">
-                  Managed full IT infrastructure across multiple office locations — servers, network switches, Cisco devices, Active Directory. Configured Cisco VPN AnyConnect and IP phones. Provided AV support at corporate conferences including WOWBII interactive board setup.
+                  Managed full IT infrastructure across multiple office locations, including servers, network switches, Cisco devices, and Active Directory. Configured Cisco VPN AnyConnect and IP phones. Provided AV support at corporate conferences including WOWBII interactive board setup.
                 </div>
                 <div class="tl-tags">
                   <span class="tl-tag">Cisco</span><span class="tl-tag">Active Directory</span><span class="tl-tag">Networking</span><span class="tl-tag">IT Support</span><span class="tl-tag">VPN</span>
@@ -989,7 +1004,7 @@
     <div class="container">
       <div class="section-label reveal">Credentials</div>
       <h2 class="section-title reveal reveal-delay-1">Certifications & <span class="grad-text">Training</span></h2>
-      <p class="section-subtitle reveal reveal-delay-2">Continuous learning — validated expertise across development, networking, and AI.</p>
+      <p class="section-subtitle reveal reveal-delay-2">Continuous learning across development, networking, and automation.</p>
       <div class="cert-grid">
         <div class="cert-card glass-card-neon reveal reveal-delay-1">
           <div class="cert-icon" style="color:var(--primary)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
@@ -1022,14 +1037,14 @@
         <div class="cert-card glass-card-neon reveal reveal-delay-2">
           <div class="cert-icon" style="color:var(--secondary)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg></div>
           <div class="cert-issuer">MTI IT Academy / IT Central</div>
-          <div class="cert-title">Web Design — HTML, CSS, JavaScript & Git</div>
+          <div class="cert-title">Web Design: HTML, CSS, JavaScript & Git</div>
           <div class="cert-date">Jun 2020</div>
           <div class="cert-tags"><span class="cert-tag">HTML</span><span class="cert-tag">CSS</span><span class="cert-tag">JavaScript</span><span class="cert-tag">Git</span></div>
         </div>
         <div class="cert-card glass-card-neon reveal reveal-delay-3">
           <div class="cert-icon" style="color:#ffaa00"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <div class="cert-issuer">Major League Hacking / Microsoft</div>
-          <div class="cert-title">MLH Local Hack Day — Training Certificate</div>
+          <div class="cert-title">MLH Local Hack Day Training Certificate</div>
           <div class="cert-date">Dec 2019</div>
           <div class="cert-tags"><span class="cert-tag">Git</span><span class="cert-tag">Azure</span><span class="cert-tag">Hackathon</span></div>
         </div>
@@ -1045,7 +1060,7 @@
       <div class="edu-grid">
         <div class="edu-card glass-card-neon reveal reveal-delay-1">
           <div class="edu-icon" style="color:var(--primary)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-          <div class="edu-year">2021 — Oct 2025</div>
+          <div class="edu-year">2021 to Oct 2025</div>
           <div class="edu-degree">BSc Computer Science</div>
           <div class="edu-school">Bingham University · Karu, Nigeria</div>
           <div class="edu-grade">Second Class Upper</div>
@@ -1053,7 +1068,7 @@
         <div class="edu-card glass-card-neon reveal reveal-delay-2">
           <div class="edu-icon" style="color:var(--secondary)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div class="edu-year">2019</div>
-          <div class="edu-degree">WASSCE — Science</div>
+          <div class="edu-degree">WASSCE Science</div>
           <div class="edu-school">Christ Ambassadors College · Kaduna, Nigeria</div>
           <div class="edu-grade">9 Subjects</div>
         </div>
@@ -1081,7 +1096,7 @@
           </div>
           <div class="contact-info-title">Have a project or role<br />in mind? Let's talk.</div>
           <p class="contact-info-sub">
-            Open to remote, hybrid, and onsite opportunities. Whether it's a web project, IT support contract, creative brief, or a full-time role — I'm ready to contribute and grow. Message me and I'll respond within 24 hours.
+            Open to remote, hybrid, and onsite opportunities. Whether it's a web project, IT support contract, creative brief, or a full-time role, I'm ready to contribute and grow. Message me and I'll respond within 24 hours.
           </p>
           <div class="contact-links">
             <a href="mailto:joshuaerusiafe@gmail.com" class="contact-link-row">
@@ -1156,7 +1171,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    const isTouchLike = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches;
+    const isTouchLike = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches || window.matchMedia('(max-width: 768px)').matches;
 
     // Scroll progress bar
     window.addEventListener('scroll', () => {
@@ -1182,7 +1197,7 @@
     });
 
     // Typing effect for hero
-    const roles = ['Developer. Builder. Creator.', 'Web Developer & IT Pro.', 'Founder of DANTEX Official.', 'AI & Automation Builder.'];
+    const roles = ['Developer. Builder. Creator.', 'Web Developer & IT Pro.', 'Founder of DANTEX Official.', 'Automation Builder.'];
     let roleIdx = 0, charIdx = 0, deleting = false;
     const typedEl = document.getElementById('typedRole');
     function typeRole() {
@@ -1238,7 +1253,9 @@
       const burger = document.getElementById('hamburger');
       nav.classList.toggle('active');
       burger.classList.toggle('active');
-      document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+      const isOpen = nav.classList.contains('active');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      document.documentElement.style.overflow = isOpen ? 'hidden' : '';
     }
 
     function downloadCV(e) {
