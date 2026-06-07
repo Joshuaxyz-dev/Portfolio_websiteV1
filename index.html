@@ -107,12 +107,12 @@
     .mobile-menu-toggle.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(9px, 9px); }
     .mobile-menu-toggle.active .hamburger-line:nth-child(2) { opacity: 0; }
     .mobile-menu-toggle.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-    .mobile-nav { position: fixed; top: 90px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 30px; display: none; flex-direction: column; gap: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); z-index: 99998; }
-    .mobile-nav.active { display: flex; animation: slideDown 0.3s ease-out; }
-    @keyframes slideDown { from { opacity: 0; transform: translateX(-50%) translateY(-20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
-    .mobile-nav a { color: #fff; text-decoration: none; padding: 15px 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 1.1rem; transition: all 0.3s ease; }
+    .mobile-nav { position: fixed; top: 76px; left: 12px; right: 12px; max-height: calc(100vh - 92px); overflow-y: auto; -webkit-overflow-scrolling: touch; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 18px; padding: 16px; display: none; flex-direction: column; gap: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8); z-index: 99998; }
+    .mobile-nav.active { display: flex; animation: slideDown 0.24s ease-out; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    .mobile-nav a { color: #fff; text-decoration: none; padding: 12px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 0.98rem; transition: all 0.3s ease; }
     .mobile-nav a:hover { background: rgba(224, 163, 255, 0.1); color: #e0a3ff; box-shadow: 0 0 20px rgba(224, 163, 255, 0.3); transform: translateY(-2px); }
-    .mobile-close { position: absolute; top: 24px; right: 28px; font-size: 2rem; cursor: pointer; color: var(--text-muted); background: none; border: none; }
+    .mobile-close { position: sticky; top: 0; align-self: flex-end; font-size: 1.5rem; line-height: 1; cursor: pointer; color: var(--text-muted); background: none; border: none; padding: 4px 6px; }
 
     /* SECTIONS */
     section { position: relative; z-index: 1; padding: 100px 24px 70px; }
@@ -184,6 +184,8 @@
     .about-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
     .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50px; padding: 6px 14px; font-size: 0.8rem; color: var(--text-soft); }
     .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+    .who-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
+    .who-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 999px; padding: 6px 12px; font-size: 0.78rem; color: var(--text-soft); }
     .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
     .about-stat { padding: 24px 16px; text-align: center; }
     .about-stat-num { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -407,9 +409,9 @@
     .proj-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); transition: opacity 0.4s; }
     .proj-card:hover .proj-thumb-overlay { opacity: 0.5; }
     .proj-cat-badge { position: absolute; top: 14px; left: 14px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid; border-radius: 6px; padding: 3px 10px; backdrop-filter: blur(8px); }
-    .proj-action-row { position: absolute; bottom: 0; left: 0; right: 0; display: flex; gap: 10px; padding: 16px; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .proj-action-row { position: absolute; bottom: 0; left: 0; right: 0; display: flex; gap: 10px; padding: 16px; transform: translateY(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); pointer-events: auto; z-index: 2; }
     .proj-card:hover .proj-action-row { transform: translateY(0); }
-    .proj-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-decoration: none; transition: all 0.25s; border: 1px solid; }
+    .proj-link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-decoration: none; transition: all 0.25s; border: 1px solid; position: relative; z-index: 3; pointer-events: auto; }
     .proj-live-btn { background: rgba(0,240,255,0.15); border-color: var(--primary); color: var(--primary); }
     .proj-live-btn:hover { background: var(--primary); color: #000; }
     .proj-github-btn { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); color: #fff; }
@@ -419,6 +421,20 @@
     .proj-tag { font-size: 0.6rem; letter-spacing: 1px; background: rgba(0,240,255,0.08); border: 1px solid rgba(0,240,255,0.2); color: var(--primary); padding: 3px 8px; border-radius: 6px; text-transform: uppercase; }
     .proj-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
     .proj-desc { color: var(--text-muted); font-size: 0.86rem; line-height: 1.65; }
+
+    @media (hover: none), (max-width: 768px) {
+      .proj-action-row {
+        position: static;
+        transform: none !important;
+        padding: 14px 16px 16px;
+        flex-wrap: wrap;
+      }
+
+      .proj-link-btn {
+        flex: 1 1 120px;
+        justify-content: center;
+      }
+    }
 
     /* CONTACT */
     #contact .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 44px; margin-top: 52px; }
@@ -629,6 +645,23 @@
       .mobile-menu-toggle { display: flex; }
       .about-stats { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .glass-card-neon {
+        transform: none !important;
+      }
+      .hero-badge,
+      .hero-sub,
+      .hero-title,
+      .hero-ctas,
+      .section-label,
+      .section-title,
+      .section-subtitle {
+        animation: none !important;
+      }
     }
     /* ── SOCIAL ICONS ── */
     .social-row {
@@ -737,7 +770,7 @@
         <div class="hero-content">
           <div class="hero-badge">
             <div class="hero-badge-dot"></div>
-            Open to remote, hybrid & onsite opportunities
+            Open to remote, hybrid, and onsite opportunities
           </div>
           <h1 class="hero-title">
             Hi, I'm <span class="grad-text glow-animate">Joshua Erusiafe</span><br />
@@ -745,12 +778,12 @@
           </h1>
           <p class="hero-sub">
             Computer Science graduate with hands-on experience in web development, IT infrastructure, AI integrations, and creative design.
-            Founder of <strong style="color:#e0a3ff">DANTEX Official</strong> — turning ideas into polished digital products.
+            Founder of <strong style="color:#e0a3ff">DANTEX Official</strong>, turning ideas into polished digital products.
           </p>
           <div class="hero-ctas">
             <a href="#projects" class="btn-primary">View My Work →</a>
             <a href="#contact" class="btn-outline">Let's Talk</a>
-            <a href="#" class="btn-outline" onclick="downloadCV(event)">⬇ Download CV</a>
+            <a href="#" class="btn-outline" onclick="downloadCV(event)">Download CV</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -767,19 +800,19 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-copy">
-          <div class="section-label reveal">Who I Am</div>
+          <div class="section-label reveal">About Me</div>
           <h2 class="section-title reveal reveal-delay-1">
             I build things that work — and look great doing it.
           </h2>
           <p class="about-text reveal reveal-delay-2">
-            I'm Joshua Erusiafe — a Computer Science graduate from Bingham University, Abuja. I combine technical depth across web development, IT support, networking, and AI tools with creative skills in graphic design and video editing. As Founder & Director of DANTEX Official, I've built and shipped real products for real clients — handling everything from front-end code to branding to infrastructure.
+            I'm Joshua Erusiafe, a Computer Science graduate from Bingham University, Abuja. I work across web development, IT support, networking, and creative design. As Founder & Director of DANTEX Official, I've built and shipped real products for real clients, handling everything from front-end code to branding and infrastructure.
           </p>
-          <div class="about-chips reveal reveal-delay-3">
-            <div class="chip"><div class="chip-dot"></div> Abuja, Nigeria</div>
-            <div class="chip"><div class="chip-dot" style="background:var(--secondary)"></div> Web Developer</div>
-            <div class="chip"><div class="chip-dot" style="background:var(--accent)"></div> IT Specialist</div>
-            <div class="chip"><div class="chip-dot" style="background:#00ff88"></div> AI & Automation</div>
-            <div class="chip"><div class="chip-dot" style="background:#ffaa00"></div> Creative Designer</div>
+          <div class="who-badges reveal reveal-delay-3">
+            <div class="who-badge"><div class="chip-dot"></div> Abuja, Nigeria</div>
+            <div class="who-badge"><div class="chip-dot" style="background:var(--secondary)"></div> Web Developer</div>
+            <div class="who-badge"><div class="chip-dot" style="background:var(--accent)"></div> IT Specialist</div>
+            <div class="who-badge"><div class="chip-dot" style="background:#00ff88"></div> Creative Work</div>
+            <div class="who-badge"><div class="chip-dot" style="background:#ffaa00"></div> Branding</div>
           </div>
           <div class="about-stats reveal reveal-delay-4">
             <div class="about-stat glass-card-neon">
@@ -817,22 +850,22 @@
         <div class="service-card glass-card-neon reveal reveal-delay-2">
           <div class="service-icon" style="color:var(--secondary)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div class="service-title">IT Support & Networking</div>
-          <div class="service-desc">Network setup, troubleshooting, Cisco device configuration, Active Directory management, and comprehensive infrastructure support — onsite or remote.</div>
+          <div class="service-desc">Network setup, troubleshooting, Cisco device configuration, Active Directory management, and comprehensive infrastructure support, onsite or remote.</div>
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-3">
           <div class="service-icon" style="color:var(--primary)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg></div>
           <div class="service-title">AI & Automation</div>
-          <div class="service-desc">Integrating LLMs (Mistral AI), prompt engineering, and AI workflow optimization to build intelligent features and automate business processes.</div>
+          <div class="service-desc">Integrating AI workflows, prompt design, and automation to build intelligent features and streamline business processes.</div>
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-4">
           <div class="service-icon" style="color:var(--accent)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
           <div class="service-title">Graphic Design & Branding</div>
-          <div class="service-desc">Professional branding, flyer design, logo creation, and visual identity development using Adobe Photoshop and Canva — for businesses that want to stand out.</div>
+          <div class="service-desc">Professional branding, flyer design, logo creation, and visual identity development using Adobe Photoshop and Canva for businesses that want to stand out.</div>
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-1">
           <div class="service-icon" style="color:var(--secondary)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
           <div class="service-title">Video Editing & Content</div>
-          <div class="service-desc">Promotional trailers, social media content, logo reveal animations, and motion graphics using CapCut and Photoshop — storytelling meets visual design.</div>
+          <div class="service-desc">Promotional trailers, social media content, logo reveal animations, and motion graphics using CapCut and Photoshop for clean visual storytelling.</div>
         </div>
         <div class="service-card glass-card-neon reveal reveal-delay-2">
           <div class="service-icon" style="color:#00ff88"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
@@ -848,7 +881,7 @@
     <div class="container">
       <div class="section-label reveal">Technical Arsenal</div>
       <h2 class="section-title reveal reveal-delay-1">Core <span class="grad-text">Skills</span></h2>
-      <p class="section-subtitle reveal reveal-delay-2">Real skills built through real projects — web dev, IT, AI, and creative work.</p>
+      <p class="section-subtitle reveal reveal-delay-2">Real skills built through real projects, spanning web dev, IT, and creative work.</p>
       <div class="skills-filter reveal reveal-delay-3">
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="web">WEB DEV</button>
@@ -875,7 +908,7 @@
               <div class="tl-title">Founder & Director</div>
               <div class="tl-company">DANTEX Official · Self-Employed</div>
               <div class="tl-desc">
-                Founded and manage a gaming, branding & tech services company. Lead development of web applications using Next.js, TypeScript, and AI integrations. Deliver branding, graphic design, video content, and end-to-end client projects.
+                Founded and manage a gaming, branding, and tech services company. Lead development of web applications using modern web tools and integrations. Deliver branding, graphic design, video content, and end-to-end client projects.
               </div>
               <div class="tl-tags">
                 <span class="tl-tag">Next.js</span><span class="tl-tag">TypeScript</span><span class="tl-tag">Mistral AI</span><span class="tl-tag">Amazon S3</span><span class="tl-tag">Tailwind</span>
@@ -915,7 +948,7 @@
         <div class="tl-item reveal">
           <div class="tl-left">
             <div class="tl-card glass-card-neon">
-              <div class="tl-date">2021 — Oct 2025</div>
+              <div class="tl-date">2021 to Oct 2025</div>
               <div class="tl-title">BSc Computer Science</div>
               <div class="tl-company">Bingham University · Karu, Nigeria</div>
               <div class="tl-desc">
@@ -939,7 +972,7 @@
     <div class="container">
       <div class="section-label reveal">Portfolio</div>
       <h2 class="section-title reveal reveal-delay-1">Featured <span class="grad-text">Projects</span></h2>
-      <p class="section-subtitle reveal reveal-delay-2">Things I've built — real products, real code, real impact.</p>
+      <p class="section-subtitle reveal reveal-delay-2">Things I've built, from websites to apps to creative work.</p>
       <div class="proj-filter reveal reveal-delay-3">
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="web">WEB</button>
@@ -1123,22 +1156,27 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const isTouchLike = window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(hover: none)').matches;
 
     // Scroll progress bar
     window.addEventListener('scroll', () => {
       const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       document.getElementById('scrollProgress').style.width = scrolled + '%';
-      const fab = document.getElementById('fabTop');
-      if (fab) fab.classList.toggle('visible', window.scrollY > 400);
+      if (!isTouchLike) {
+        const fab = document.getElementById('fabTop');
+        if (fab) fab.classList.toggle('visible', window.scrollY > 400);
+      }
 
       // Parallax effect
-      const banner = document.getElementById('parallaxBanner');
-      const img = document.getElementById('parallaxImg');
-      if (banner && img) {
-        const rect = banner.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-          img.style.transform = `translateY(${progress * 80 - 40}px)`;
+      if (!isTouchLike) {
+        const banner = document.getElementById('parallaxBanner');
+        const img = document.getElementById('parallaxImg');
+        if (banner && img) {
+          const rect = banner.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+            img.style.transform = `translateY(${progress * 80 - 40}px)`;
+          }
         }
       }
     });
@@ -1159,18 +1197,24 @@
       }
       setTimeout(typeRole, deleting ? 40 : 75);
     }
-    setTimeout(typeRole, 1800);
+    if (!isTouchLike) {
+      setTimeout(typeRole, 1800);
+    } else if (typedEl) {
+      typedEl.textContent = roles[0];
+    }
 
     // Magnetic card tilt effect
-    document.querySelectorAll('.glass-card-neon').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `translateY(-8px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+    if (!isTouchLike) {
+      document.querySelectorAll('.glass-card-neon').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `translateY(-8px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+        });
+        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
+    }
 
     window.addEventListener('load', () => {
       setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 900);
@@ -1190,8 +1234,11 @@
     }
 
     function toggleMobileNav() {
-      document.getElementById('mobileNav').classList.toggle('active');
-      document.getElementById('hamburger').classList.toggle('active');
+      const nav = document.getElementById('mobileNav');
+      const burger = document.getElementById('hamburger');
+      nav.classList.toggle('active');
+      burger.classList.toggle('active');
+      document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
     }
 
     function downloadCV(e) {
@@ -1284,7 +1331,7 @@
     const projectsData = [
       {
         title: 'DANTEX Web Application',
-        desc: 'Full-stack platform for gaming tech and branding services. AI-powered with Mistral AI, Amazon S3, and multiple API integrations. My flagship build.',
+        desc: 'Full-stack platform for gaming tech and branding services. Built with modern web tooling, cloud storage, and multiple API integrations. My flagship build.',
         tags: ['Next.js', 'TypeScript', 'Mistral AI', 'Amazon S3'],
         img: 'images/dantex.webp',
         thumb_color: 'linear-gradient(135deg,#0f2027,#203a43,#2c5364)',
@@ -1316,7 +1363,7 @@
       },
       {
         title: 'Pomodoro Timer App',
-        desc: 'Focus productivity timer built with Python and Tkinter. Beautiful tomato UI, work/break intervals, session tracking — implements the Pomodoro technique.',
+        desc: 'Focus productivity timer built with Python and Tkinter. Beautiful tomato UI, work and break intervals, and session tracking.',
         tags: ['Python', 'Tkinter', 'Productivity'],
         img: 'images/thumb-pomodoro.webp',
         thumb_color: 'linear-gradient(135deg,#2d1b00,#8b4513,#cc5500)',
@@ -1324,7 +1371,7 @@
       },
       {
         title: '50 US States Trivia Game',
-        desc: 'Interactive map-based trivia game. Guess all 50 US states — correct answers appear on the actual map. Built with Turtle, Pandas, and CSV data processing.',
+        desc: 'Interactive map-based trivia game. Guess all 50 US states, and correct answers appear on the actual map. Built with Turtle, Pandas, and CSV data processing.',
         tags: ['Python', 'Pandas', 'Turtle', 'CSV'],
         img: 'images/thumb-usstates.webp',
         thumb_color: 'linear-gradient(135deg,#003333,#006666,#008080)',
@@ -1348,7 +1395,7 @@
       },
       {
         title: 'Blackjack Game',
-        desc: 'Terminal-based Blackjack card game built in Python. Full game logic — hit/stand, bust detection, dealer AI, and ASCII card display.',
+        desc: 'Terminal-based Blackjack card game built in Python. Full game logic, hit and stand, bust detection, dealer AI, and ASCII card display.',
         tags: ['Python', 'OOP', 'Game Logic'],
         img: 'images/blackjack.webp',
         thumb_color: 'linear-gradient(135deg,#0a0a0a,#1a1a1a,#2a2a2a)',
@@ -1364,7 +1411,7 @@
       },
       {
         title: 'Creative Content Portfolio',
-        desc: 'Video edits, promotional trailers, social media content, logo reveal animations and motion graphics — where storytelling meets visual design.',
+        desc: 'Video edits, promotional trailers, social media content, logo reveal animations, and motion graphics for visual storytelling.',
         tags: ['CapCut', 'Photoshop', 'Canva', 'Motion'],
         img: '',
         thumb_color: 'linear-gradient(135deg,#1a0033,#4d0066,#800080)',
